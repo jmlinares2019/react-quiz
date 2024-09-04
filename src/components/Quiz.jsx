@@ -37,6 +37,21 @@ const Quiz = () => {
     }
   }
 
+  function goNext(){
+    if(lock === true){
+      setIndex(prevIndex => prevIndex + 1); // why not working properly?
+      setIndex(++index); // shouldn't use! 
+      // console.log(index);
+      setQuestion(data[index]);
+      // console.log(question);
+      setLock(false);
+      options.map((option) => {
+        option.current.classList.remove('correct', 'wrong')
+        return null;
+      });
+    } 
+  }
+
   return (
     <div className='container'>
       <h1>Quiz App</h1>
@@ -48,7 +63,7 @@ const Quiz = () => {
         <li ref={Option3} onClick={(element) => checkAnswer(element,3)} className='quiz-option'>{question.option3}</li>
         <li ref={Option4} onClick={(element) => checkAnswer(element,4)} className='quiz-option'>{question.option4}</li>
       </ul>
-      <button className='go-next'>Next</button>
+      <button className='go-next' onClick={goNext}>Next</button>
       <div className="index">{index+1} of {questions.length} questions</div>
     </div>
   )
