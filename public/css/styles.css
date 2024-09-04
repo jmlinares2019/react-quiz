@@ -1,7 +1,68 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+}
+.container {
+  width: 640px;
+  margin: auto;
+  margin-top: 50px;
+  background: white;
+  color: #262626;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 0.625rem;
+  padding: 30px 3.125rem;
+}
+.container hr {
+  height: 2px;
+  border: none;
+  background: #707070;
+}
+.container h2.quiz-question {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.container ul.quiz-options-list {
+  padding-inline-start: 0;
+}
+.container ul.quiz-options-list li.quiz-option {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 0.9375rem;
+  border: 1px solid #686868;
+  border-radius: 0.5rem;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.container button.go-next {
+  margin: auto;
+  width: 12.5rem;
+  height: 40px;
+  background: #553f9a;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.container .index {
+  margin: auto;
+  font-size: 0.875rem;
+}
+
 * {
   margin: 0;
 }
 
 div {
   border: 1px solid rebeccapurple;
+}
+
+body {
+  font-family: "Poppins-Regular", sans-serif;
+  height: 100vh;
+  background-color: #dbeaff;
 }
