@@ -2,6 +2,7 @@
 // Abstracts
 @import './abstracts/variables';
 @import './abstracts/functions';
+@import './abstracts/mixins';
 @import './abstracts/fonts';
 
 // Components
@@ -11,13 +12,18 @@
     margin: 0;
 }
 
-div{
-    border: 1px solid rebeccapurple;
+:root{
+    font-size: 16px;
+    @include tablet-down{
+        font-size: 14px;
+    }
 }
 
-body{
-    font-family: 'Poppins-Regular', sans-serif;
-    height: 100vh;
-    // background-image: linear-gradient(#D8C7FF, #19006C);
-    background-color: #dbeaff;
+html{
+    
+    body{
+        font-family: 'Poppins-Regular', sans-serif;
+        height: 100vh;
+        background-image: linear-gradient($bg-light, $btn-bg);
+    }
 }

@@ -1,0 +1,5 @@
+@mixin tablet-down{
+    @media (max-width: $tablet){
+        @content
+    }
+}
