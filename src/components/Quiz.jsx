@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { data } from '../assets/data'
 
 const Quiz = () => {
+
+  let [index, setIndex] = useState(0);
+  let  [question, setQuestion] = useState(data[index]);
+  let [lock, setLock] = useState(false);
+
+  const checkAnswer = (element, answer) => {
+    // only check answer for the firt time (not locked)
+    if(lock === false){
+      if(question.ans === answer){
+        element.target.classList.add('correct');
+        setLock(true);
+       } else {
+        element.target.classList.add('wrong');
+        setLock(true);
+       }
+    }
+  }
+
   return (
     <div className='container'>
       <h1>Quiz App</h1>
       <hr />
-      <h2 className='quiz-question'>1. Dolor aute aliquip quis ullamco. Id labore qui duis ipsum laborum consequat commodo?</h2>
+      <h2 className='quiz-question'>{index + 1}. {question.question}</h2>
       <ul className='quiz-options-list'>
-        <li className='quiz-option'>Modem</li>
-        <li className='quiz-option'>Router</li>
-        <li className='quiz-option'>LAN Cable</li>
-        <li className='quiz-option'>Pen Drive</li>
+        <li onClick={(element) => checkAnswer(element,1)} className='quiz-option'>{question.option1}</li>
+        <li onClick={(element) => checkAnswer(element,2)} className='quiz-option'>{question.option2}</li>
+        <li onClick={(element) => checkAnswer(element,3)} className='quiz-option'>{question.option3}</li>
+        <li onClick={(element) => checkAnswer(element,4)} className='quiz-option'>{question.option4}</li>
       </ul>
       <button className='go-next'>Next</button>
       <div className="index">1 of 5 questions</div>

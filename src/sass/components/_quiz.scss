@@ -35,6 +35,16 @@
             margin-bottom: 20px;
             font-size: remify(14px);
             cursor: pointer;
+
+            &.correct{
+                background: #dffff2;
+                border-color: #00d397; 
+            }
+
+            &.wrong{
+                background: #FFEBEB;
+                border-color: #FF4A4A;
+            }
         }
     }
 
