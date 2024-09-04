@@ -5,9 +5,12 @@ import { data } from '../assets/data'
 const Quiz = () => {
   console.log("Component (re)endered");
 
+  const questions = data;
+
   let [index, setIndex] = useState(0);
-  let  [question, setQuestion] = useState(data[index]);
+  let [question, setQuestion] = useState(data[index]);
   let [lock, setLock] = useState(false);
+  let [score, setScore] = useState(0);
 
   // create the references
   let Option1 = useRef(null);
@@ -24,6 +27,7 @@ const Quiz = () => {
       if(question.ans === answer){
         element.target.classList.add('correct');
         setLock(true);
+        setScore(prev => prev + 1);
        } else {
         element.target.classList.add('wrong');
         setLock(true);
@@ -45,7 +49,7 @@ const Quiz = () => {
         <li ref={Option4} onClick={(element) => checkAnswer(element,4)} className='quiz-option'>{question.option4}</li>
       </ul>
       <button className='go-next'>Next</button>
-      <div className="index">1 of 5 questions</div>
+      <div className="index">{index+1} of {questions.length} questions</div>
     </div>
   )
 }
