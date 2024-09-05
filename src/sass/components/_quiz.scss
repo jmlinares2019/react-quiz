@@ -1,6 +1,9 @@
 .container{
-    width: 640px;
+    max-width: 640px;
     margin: auto;
+    @include tablet-down{
+        margin: 50px remify(20px); 
+    }
     margin-top: 50px;
     background: white;
     color: #262626;
@@ -13,7 +16,7 @@
     hr{
         height: 2px;
         border: none;
-        background: #707070
+        background: $midgrey;
     }
 
     h2.quiz-question{
@@ -30,22 +33,34 @@
             align-items: center;
             height: 40px;
             padding-left: remify(15px);
-            border: 1px solid #686868;
+            border: 1px solid $midgrey;
             border-radius: remify(8px);
             margin-bottom: 20px;
             font-size: remify(14px);
             cursor: pointer;
+
+            &.correct{
+                background: $success-bg;
+                border-color: $success-border; 
+            }
+
+            &.wrong{
+                background: $danger-bg;
+                border-color: $danger-border;
+            }
         }
     }
 
-    button.go-next{
+    button.go-next,
+    button.reset{
         margin: auto;
         width: remify(200px);
         height: 40px;
-        background: #553f9a;
+        background: $btn-bg;
         color: #fff;
         font-size: remify(18px);
         font-weight: 500;
+        border: none;
         border-radius: remify(8px);
         cursor: pointer;
     }
